@@ -1,6 +1,9 @@
-function Stopwatch() {
 
-	var timeStart = null 
+
+
+function Stopwatch(id) {
+
+	var timeStart = null
 	var timeStop = null
 	var stopDuration = 0;
 	var started = null;
@@ -12,11 +15,12 @@ function Stopwatch() {
 		var sec = timeElapsed.getUTCSeconds();
 		var ms = timeElapsed.getUTCMilliseconds();
 
-		document.getElementById("display").innerHTML =
+		document.getElementById(id).innerHTML =
 		(min > 9 ? min : "0" + min) + ":" +
 		(sec > 9 ? sec : "0" + sec) + "." +
 		(ms > 99 ? ms : ms > 9 ? "0" + ms : "00" + ms);
 	}
+
 
 	this.start = function() {
 		if (timeStart === null) {
@@ -39,7 +43,8 @@ function Stopwatch() {
 		stoppedDuration = 0;
 		timeStart = null;
 		timeStop = null;
-		document.getElementById("display").innerHTML = "00:00:00.000";
+		document.getElementById(id).innerHTML = "00:00:00.000";
 	}
 }
-const sw = new Stopwatch()
+const sw = new Stopwatch(1)
+const sw2 = new Stopwatch(2)
